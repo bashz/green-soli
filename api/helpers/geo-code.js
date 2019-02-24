@@ -91,7 +91,7 @@ module.exports = {
       outputDescription: 'The request could not be processed due to a server error. The request may succeed if you try again.'
     }
   },
-  fn: async function (inputs, exits) {
+  async fn (inputs, exits) {
     let geoResponse = null
     try {
       geoResponse = await geoCoder(inputs.address)

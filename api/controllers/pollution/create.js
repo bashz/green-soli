@@ -124,7 +124,7 @@ module.exports = {
       trees,
       details,
       type: type.id,
-      user: this.req.userId
+      user: this.req.user.id
     }).fetch()
     return exits.created(pollution)
   }

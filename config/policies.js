@@ -10,8 +10,17 @@
 
 module.exports.policies = {
   'pollution/create': [
-    'mobile', 'device'
-  ]
+    'mobile', 'jwt', 'device', 'me'
+  ],
+  'user/me': [
+    'mobile', 'jwt', 'device', 'me'
+  ],
+  'user/signup': [
+    'mobile', 'anon', 'device', 'me'
+  ],
+  'user/login': [
+    'mobile', 'anon', 'device', 'me'
+  ],
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions, unless overridden.       *

@@ -1,12 +1,15 @@
 module.exports = async (req, res, proceed) => {
+  if (req.user) {
+    return proceed()
+  }
   const deviceId = req.headers['x-device-id']
   if (!deviceId) {
     return res.unauthorized(new Error('No user was provided'))
   }
-  const user = await User.findOne({currentDeviceId: deviceId})
+  let user = await User.findOne({deviceId})
   if (!user) {
-    return res.unauthorized(new Error('Provided user was not found'))
+    user = await User.create({deviceId}).fetch()
   }
-  req.userId = user.id
+  req.user = _.omit(user, ['password', 'salt'])
   return proceed()
 }

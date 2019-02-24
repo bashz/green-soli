@@ -20,6 +20,11 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': 'app.version',
+
+  'get /user/me': 'user.me',
+  'post /user/signup': 'user.signup',
+  'post /user/login': 'user.login',
+
   'post /pollution/create': 'pollution.create'
 
 

@@ -30,12 +30,11 @@ module.exports = function populateHook(sails) {
           ))
           users.push(User.findOrCreate(
             {
-              currentDeviceId: '00001'
+              deviceId: '00001'
             },
             {
-              name: 'Jhon Doe',
-              currentDeviceId: '00001',
-              originalDeviceId: '00001'
+              username: 'Jhon Doe',
+              deviceId: '00001'
             }
           ))
           try {
